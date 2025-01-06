@@ -1,0 +1,11 @@
+@use "./helpers/reset";
+
+body,
+html {
+  width: 100vw;
+  height: auto;
+  font-family: "Handen Grotesk", sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color: #282726;
+}
