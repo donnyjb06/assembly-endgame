@@ -10,7 +10,7 @@ const WordDisplay: FC<WordDisplayProp> = ({ word }) => {
 	let letterBoxes = word
 		.toUpperCase()
 		.split("")
-		.map((letter, index) => {
+		.map((letter) => {
 			return <span key={nanoid()} className={styles.wordDisplay__letter}>{letter}</span>;
 		});
 
