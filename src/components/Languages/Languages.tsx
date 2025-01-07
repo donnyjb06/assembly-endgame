@@ -9,9 +9,9 @@ const Languages = () => {
 			color: language.color,
 		};
 		return (
-			<div className={styles.languages__card} style={style}>
+			<span className={styles.languages__card} style={style}>
 				{language.name}
-			</div>
+			</span>
 		);
 	});
 
