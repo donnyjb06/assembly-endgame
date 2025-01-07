@@ -4,17 +4,17 @@
 
 .languages {
 	display: flex;
-  align-items: center;
-  justify-content: center;
+	align-items: center;
+	justify-content: center;
 	max-width: 414px;
 	gap: clamp(1.5px, 1vw, 5px);
 	flex-wrap: wrap;
 	margin-block-start: 36px;
 
 	.languages__card {
-    font-size: clamp(functions.rem(14px), 2vw, functions.rem(28px));
+		font-size: clamp(functions.rem(14px), 2vw, functions.rem(28px));
 		font-weight: map.get(variables.$font-weights, "bold");
-    padding: clamp(4.5px, 2vw, 9px);
-    border-radius: 4.5px;
+		padding: clamp(4.5px, 2vw, 9px);
+		border-radius: 4.5px;
 	}
 }
