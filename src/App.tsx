@@ -1,5 +1,6 @@
 import Header from "@components/Header/Header";
 import StatusSection from "@components/StatusSection/StatusSection";
+import Languages from "@components/Languages/Languages";
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
      <Header />
      <StatusSection />
+     <Languages />
     </>
   )
 }
