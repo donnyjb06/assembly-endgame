@@ -1,0 +1,58 @@
+@use "../../styles/helpers/functions";
+@use "../../styles/helpers/variables";
+@use "../../styles/helpers/mixins";
+@use "sass:map";
+
+$correct-guess-clr: #10a95b;
+$no-guess-color: #fcba29;
+$incorrect-guess-clr: #ec5d49;
+
+.keyboard {
+	max-width: 600px;
+	display: flex;
+	flex-wrap: wrap;
+	margin-block-start: 48px;
+	gap: 10px;
+	justify-content: center;
+
+	.keyboard__key {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #1e1e1e;
+		@include mixins.button($no-guess-color);
+		padding: 15px;
+		width: 50px;
+		height: 50px;
+		font-size: clamp(1rem, 2vw, 2rem);
+		font-weight: map.get(variables.$font-weights, "semi-bold");
+		cursor: pointer;
+		transition: 0.25s
+			linear(
+				0,
+				0.49 7.4%,
+				0.864 15.3%,
+				1.005 19.4%,
+				1.12 23.7%,
+				1.206 28.1%,
+				1.267 32.8%,
+				1.296 36.4%,
+				1.311 40.2%,
+				1.313 44.2%,
+				1.301 48.6%,
+				1.252 56.9%,
+				1.105 74.4%,
+				1.048 82.5%,
+				1.011 91.1%,
+				1
+			);
+	}
+
+	.keyboard__key:hover {
+		transform: scale(1.05);
+	}
+
+	.keyboard__key:active {
+		transform: scale(0.95);
+	}
+}
