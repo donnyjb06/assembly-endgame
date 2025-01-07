@@ -1,0 +1,25 @@
+@use "../../styles/helpers/functions";
+@use "sass:map";
+@use "../../styles/helpers/variables";
+
+$notice-clr: #7a5ea7;
+$win-clr: #10a95b;
+$lose-color: #ba2a2a;
+
+.statusSection {
+	width: 100%;
+	max-width: 500px;
+	background-color: $win-clr;
+	padding-block: 6px;
+	margin-block-start: 20px;
+  border-radius: 4px;
+  font-weight: map.get(variables.$font-weights, "medium");
+
+	.statusSection__status {
+		font-size: clamp(functions.rem(18px), 2vw, functions.rem(36px));
+	}
+
+  .statusSection__statusMsg {
+    font-size: clamp(0.8rem, 2vw, 1.6rem)
+  }
+}
