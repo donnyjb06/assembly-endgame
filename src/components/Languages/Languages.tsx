@@ -9,7 +9,7 @@ const Languages = () => {
 			color: language.color,
 		};
 		return (
-			<span className={styles.languages__card} style={style}>
+			<span className={styles.languages__card} key={nanoid()} style={style}>
 				{language.name}
 			</span>
 		);
