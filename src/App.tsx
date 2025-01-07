@@ -3,6 +3,7 @@ import StatusSection from "@components/StatusSection/StatusSection";
 import Languages from "@components/Languages/Languages";
 import WordDisplay from "@components/WordDisplay/WordDisplay";
 import Keyboard from "@components/Keyboard/Keyboard";
+import Button from "@components/Button/Button";
 import React from "react";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 			<Languages />
 			<WordDisplay word={currentWord} />
       <Keyboard alphabet={alphabet} />
+      <Button />
 		</>
 	);
 }
