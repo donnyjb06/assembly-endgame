@@ -8,8 +8,20 @@ import React from "react";
 
 function App() {
 	const [currentWord, setcurrentWord] = React.useState<string>("Pterodactyl");
+	const [guessedLetters, setGuessedLetters] = React.useState<Set<string>>(
+		new Set()
+	);
 
-  const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
+	const addToGuessedLetters = (letter: string) => {
+		setGuessedLetters((prevGuessedLetters) =>
+			prevGuessedLetters.has(letter)
+				? prevGuessedLetters
+				: new Set([...prevGuessedLetters, letter])
+		);
+	};
+	console.log(guessedLetters);
+
+	const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
 
 	return (
 		<>
@@ -17,8 +29,8 @@ function App() {
 			<StatusSection />
 			<Languages />
 			<WordDisplay word={currentWord} />
-      <Keyboard alphabet={alphabet} />
-      <Button />
+			<Keyboard alphabet={alphabet} addToGuessedLetters={addToGuessedLetters} />
+			<Button />
 		</>
 	);
 }
