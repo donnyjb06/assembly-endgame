@@ -13,6 +13,18 @@ function App() {
 		new Set()
 	);
 
+	let incorrectGuessCount: number = 0;
+
+	for (const letter of guessedLetters) {
+		if (guessedLetters.has(letter) && !currentWord.includes(letter)) {
+			incorrectGuessCount += 1;
+		}
+	}
+
+	console.log(incorrectGuessCount)
+
+	const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
+
 	const addToGuessedLetters = (letter: string) => {
 		setGuessedLetters((prevGuessedLetters) =>
 			prevGuessedLetters.has(letter)
@@ -20,9 +32,6 @@ function App() {
 				: new Set([...prevGuessedLetters, letter])
 		);
 	};
-	console.log(guessedLetters);
-
-	const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
 
 	return (
 		<>
