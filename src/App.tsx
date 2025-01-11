@@ -29,7 +29,7 @@ function App() {
 			<Header />
 			<StatusSection />
 			<Languages />
-			<WordDisplay word={currentWord} />
+			<WordDisplay word={currentWord} guessedLetters={guessedLetters} />
 			<Keyboard alphabet={alphabet} addToGuessedLetters={addToGuessedLetters} currentWord={currentWord} guessedLetters={guessedLetters} />
 			<Button />
 		</>
