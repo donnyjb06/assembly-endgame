@@ -55,4 +55,12 @@ $incorrect-guess-clr: #ec5d49;
 	.keyboard__key:active {
 		transform: scale(0.95);
 	}
+
+	.keyboard__correctGuess {
+		background-color: $correct-guess-clr;
+	}
+
+	.keyboard__incorrectGuess {
+		background-color: $incorrect-guess-clr;
+	}
 }

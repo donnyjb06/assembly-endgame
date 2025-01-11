@@ -5,9 +5,10 @@ import WordDisplay from "@components/WordDisplay/WordDisplay";
 import Keyboard from "@components/Keyboard/Keyboard";
 import Button from "@components/Button/Button";
 import React from "react";
+import clsx from "clsx";
 
 function App() {
-	const [currentWord, setcurrentWord] = React.useState<string>("Pterodactyl");
+	const [currentWord, setcurrentWord] = React.useState<string>("Pterodactyl".toUpperCase());
 	const [guessedLetters, setGuessedLetters] = React.useState<Set<string>>(
 		new Set()
 	);
@@ -29,7 +30,7 @@ function App() {
 			<StatusSection />
 			<Languages />
 			<WordDisplay word={currentWord} />
-			<Keyboard alphabet={alphabet} addToGuessedLetters={addToGuessedLetters} />
+			<Keyboard alphabet={alphabet} addToGuessedLetters={addToGuessedLetters} currentWord={currentWord} guessedLetters={guessedLetters} />
 			<Button />
 		</>
 	);
