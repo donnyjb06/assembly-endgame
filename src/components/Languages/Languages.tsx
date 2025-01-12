@@ -14,11 +14,13 @@ const Languages: FC<LanguagesProp> = ({ wrongGuessCounter }) => {
 			color: language.color,
 		};
 
+		const isLanguageLost = index <= wrongGuessCounter - 1;
+
 		const className =
-			index <= wrongGuessCounter - 1
+			isLanguageLost
 				? `${styles.languages__card_status_lost} ${styles.languages__card}`
 				: styles.languages__card;
-				
+
 		return (
 			<span className={className} key={nanoid()} style={style}>
 				{language.name}
