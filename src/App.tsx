@@ -6,13 +6,18 @@ import Keyboard from "@components/Keyboard/Keyboard";
 import Button from "@components/Button/Button";
 import React from "react";
 import clsx from "clsx";
+import { languages } from "@utils/languages";
 
 function App() {
-	const [currentWord, setcurrentWord] = React.useState<string>("Pterodactyl".toUpperCase());
+	// State variables
+	const [currentWord, setcurrentWord] = React.useState<string>(
+		"React".toUpperCase()
+	);
 	const [guessedLetters, setGuessedLetters] = React.useState<Set<string>>(
 		new Set()
 	);
 
+	// Derived state variables
 	let incorrectGuessCount: number = 0;
 
 	for (const letter of guessedLetters) {
@@ -20,9 +25,16 @@ function App() {
 			incorrectGuessCount += 1;
 		}
 	}
+	
+	const isGameWon = currentWord
+		.split("")
+		.every((letter) => guessedLetters.has(letter));
+	const isGameLost = incorrectGuessCount >= languages.length - 1;
+	const isGameOver = isGameWon || isGameLost;
 
-	console.log(incorrectGuessCount)
 
+
+	// Stativ variables
 	const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
 
 	const addToGuessedLetters = (letter: string) => {
@@ -39,8 +51,13 @@ function App() {
 			<StatusSection />
 			<Languages wrongGuessCounter={incorrectGuessCount} />
 			<WordDisplay word={currentWord} guessedLetters={guessedLetters} />
-			<Keyboard alphabet={alphabet} addToGuessedLetters={addToGuessedLetters} currentWord={currentWord} guessedLetters={guessedLetters} />
-			<Button />
+			<Keyboard
+				alphabet={alphabet}
+				addToGuessedLetters={addToGuessedLetters}
+				currentWord={currentWord}
+				guessedLetters={guessedLetters}
+			/>
+			{isGameOver && <Button />}
 		</>
 	);
 }
