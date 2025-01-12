@@ -37,7 +37,7 @@ function App() {
 		<>
 			<Header />
 			<StatusSection />
-			<Languages />
+			<Languages wrongGuessCounter={incorrectGuessCount} />
 			<WordDisplay word={currentWord} guessedLetters={guessedLetters} />
 			<Keyboard alphabet={alphabet} addToGuessedLetters={addToGuessedLetters} currentWord={currentWord} guessedLetters={guessedLetters} />
 			<Button />

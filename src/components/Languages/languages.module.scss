@@ -16,5 +16,24 @@
 		font-weight: map.get(variables.$font-weights, "bold");
 		padding: clamp(4.5px, 2vw, 9px);
 		border-radius: 4.5px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.languages__card_status_lost {
+		position: relative;
+	}
+
+	.languages__card_status_lost::before {
+		content: "💀";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
 	}
 }

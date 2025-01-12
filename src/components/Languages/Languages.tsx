@@ -1,15 +1,26 @@
 import styles from "@components/Languages/languages.module.scss";
 import { languages } from "@utils/languages";
 import { nanoid } from "nanoid";
+import { FC } from "react";
 
-const Languages = () => {
-	const languageElements = languages.map((language) => {
+interface LanguagesProp {
+	wrongGuessCounter: number;
+}
+
+const Languages: FC<LanguagesProp> = ({ wrongGuessCounter }) => {
+	const languageElements = languages.map((language, index) => {
 		const style = {
 			backgroundColor: language.backgroundColor,
 			color: language.color,
 		};
+
+		const className =
+			index <= wrongGuessCounter - 1
+				? `${styles.languages__card_status_lost} ${styles.languages__card}`
+				: styles.languages__card;
+				
 		return (
-			<span className={styles.languages__card} key={nanoid()} style={style}>
+			<span className={className} key={nanoid()} style={style}>
 				{language.name}
 			</span>
 		);
