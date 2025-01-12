@@ -7,10 +7,15 @@ $win-clr: #10a95b;
 $lose-color: #ba2a2a;
 
 .statusSection {
+	visibility: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
 	max-width: 500px;
-	background-color: $win-clr;
-	padding-block: 6px;
+	min-height: 110px;
+	padding-inline: 12px;
 	margin-block-start: 20px;
   border-radius: 4px;
   font-weight: map.get(variables.$font-weights, "medium");
@@ -20,6 +25,20 @@ $lose-color: #ba2a2a;
 	}
 
   .statusSection__statusMsg {
-    font-size: clamp(0.8rem, 2vw, 1.6rem)
+    font-size: clamp(0.7rem, 2vw, 1.5rem)
   }
 }
+
+.statusSection_win {
+  background-color: $win-clr;
+}
+
+.statusSection_lose {
+  background-color: $lose-color;
+}
+
+.statusSection_notice {
+  background-color: $notice-clr;
+}
+
+

@@ -48,7 +48,12 @@ function App() {
 	return (
 		<>
 			<Header />
-			<StatusSection />
+			<StatusSection
+				isGameWon={isGameWon}
+				isGameLost={isGameLost}
+				guessedLetters={guessedLetters}
+				isGameOver={isGameOver}
+			/>
 			<Languages wrongGuessCounter={incorrectGuessCount} />
 			<WordDisplay word={currentWord} guessedLetters={guessedLetters} />
 			<Keyboard
