@@ -6,6 +6,7 @@ import Keyboard from "@components/Keyboard/Keyboard";
 import Button from "@components/Button/Button";
 import React from "react";
 import { languages } from "@utils/languages";
+import { words } from "@utils/words";
 
 function App() {
 	// State variables
@@ -15,6 +16,10 @@ function App() {
 	const [guessedLetters, setGuessedLetters] = React.useState<Set<string>>(
 		new Set()
 	);
+
+	React.useEffect(() => {
+		setcurrentWord(words[Math.floor(Math.random() * words.length)].toUpperCase());
+	}, []);
 
 	// Derived state variables
 	const amountOfGuessesLeft = languages.length - 1;
