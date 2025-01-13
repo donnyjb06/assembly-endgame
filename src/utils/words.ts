@@ -482,3 +482,8 @@ export const words = [
   "yesterday",
   "young"
 ];
+
+export const getRandomWord = () => {
+  return words[Math.floor(Math.random() * words.length)].toUpperCase();
+};
+
