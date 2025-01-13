@@ -41,6 +41,11 @@ function App() {
 		);
 	};
 
+	const resetGame = () => {
+		setcurrentWord(getRandomWord());
+		setGuessedLetters(new Set());
+	};
+
 	const lastGuessedLetter = Array.from(guessedLetters).pop();
 	const isLastGuessedLetterCorrect = lastGuessedLetter && currentWord.includes(lastGuessedLetter);
 
@@ -84,7 +89,7 @@ function App() {
 				guessedLetters={guessedLetters}
 				isGameOver={isGameOver}
 			/>
-			{isGameOver && <Button />}
+			{isGameOver && <Button resetGame={resetGame} />}
 		</>
 	);
 }
