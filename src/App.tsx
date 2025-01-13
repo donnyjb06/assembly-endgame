@@ -11,7 +11,7 @@ import { getRandomWord } from "@utils/words";
 function App() {
 	// State variables
 	const [currentWord, setcurrentWord] = React.useState<string>(
-		getRandomWord()
+		() => getRandomWord()
 	);
 	const [guessedLetters, setGuessedLetters] = React.useState<Set<string>>(
 		new Set()
