@@ -8,7 +8,6 @@ import React from "react";
 import { languages } from "@utils/languages";
 import { getRandomWord } from "@utils/words";
 import Confetti from "react-confetti";
-import ReactConfetti from "react-confetti";
 
 function App() {
 	// State variables
