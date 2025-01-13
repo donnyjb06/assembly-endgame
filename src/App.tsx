@@ -17,6 +17,7 @@ function App() {
 	);
 
 	// Derived state variables
+	const amountOfGuessesLeft = languages.length - 1;
 	let incorrectGuessCount: number = 0;
 
 	for (const letter of guessedLetters) {
@@ -39,6 +40,9 @@ function App() {
 		);
 	};
 
+	const lastGuessedLetter = Array.from(guessedLetters).pop();
+	const isLastGuessedLetterCorrect = lastGuessedLetter && currentWord.includes(lastGuessedLetter);
+
 	return (
 		<>
 			<Header />
@@ -56,6 +60,23 @@ function App() {
 				guessedLetters={guessedLetters}
 				isGameOver={isGameOver}
 			/>
+
+			<section
+				className="screen-reader-only"
+				aria-live="polite"
+				role="status"
+			>
+				<p>
+					{isLastGuessedLetterCorrect
+					? `Correct! The letter ${lastGuessedLetter} is in the word.`
+					: `Incorrect! The letter ${lastGuessedLetter} is not in the word.`}
+					You have ${amountOfGuessesLeft} guesses left.
+				</p>
+				<p>Current word: {currentWord.split("").map(letter =>
+					guessedLetters.has(letter) ? letter + "." : "blank."
+				).join(" ")}</p>
+			</section>
+
 			<Keyboard
 				addToGuessedLetters={addToGuessedLetters}
 				currentWord={currentWord}
