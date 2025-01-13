@@ -5,7 +5,6 @@ import WordDisplay from "@components/WordDisplay/WordDisplay";
 import Keyboard from "@components/Keyboard/Keyboard";
 import Button from "@components/Button/Button";
 import React from "react";
-import clsx from "clsx";
 import { languages } from "@utils/languages";
 
 function App() {
@@ -25,17 +24,12 @@ function App() {
 			incorrectGuessCount += 1;
 		}
 	}
-	
+
 	const isGameWon = currentWord
 		.split("")
 		.every((letter) => guessedLetters.has(letter));
 	const isGameLost = incorrectGuessCount >= languages.length - 1;
 	const isGameOver = isGameWon || isGameLost;
-
-
-
-	// Stativ variables
-	const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
 
 	const addToGuessedLetters = (letter: string) => {
 		setGuessedLetters((prevGuessedLetters) =>
@@ -53,11 +47,12 @@ function App() {
 				isGameLost={isGameLost}
 				guessedLetters={guessedLetters}
 				isGameOver={isGameOver}
+				currentWord={currentWord}
+				incorrectGuessCount={incorrectGuessCount}
 			/>
 			<Languages wrongGuessCounter={incorrectGuessCount} />
 			<WordDisplay word={currentWord} guessedLetters={guessedLetters} />
 			<Keyboard
-				alphabet={alphabet}
 				addToGuessedLetters={addToGuessedLetters}
 				currentWord={currentWord}
 				guessedLetters={guessedLetters}

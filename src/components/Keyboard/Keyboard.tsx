@@ -3,14 +3,15 @@ import { FC } from "react";
 import clsx from "clsx";
 
 interface KeyboardProp {
-	alphabet: string;
 	addToGuessedLetters: (letter: string) => void;
 	currentWord: string;
 	guessedLetters: Set<string>
 }
 
-const Keyboard: FC<KeyboardProp> = ({ alphabet, addToGuessedLetters, currentWord, guessedLetters }) => {
-	const alphabetButtons = alphabet.split("").map((letter) => {
+const Keyboard: FC<KeyboardProp> = ({ addToGuessedLetters, currentWord, guessedLetters }) => {
+	const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
+
+	const alphabetButtons = alphabet.split("").map((letter: string) => {
 		const isGuessed = guessedLetters.has(letter);
 		const isCorrect = currentWord.includes(letter);
 
