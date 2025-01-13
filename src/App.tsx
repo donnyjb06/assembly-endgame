@@ -53,7 +53,7 @@ function App() {
 			<Languages wrongGuessCounter={incorrectGuessCount} />
 			<WordDisplay word={currentWord} guessedLetters={guessedLetters} />
 			<Keyboard
-				addToGuessedLetters={addToGuessedLetters}
+				addToGuessedLetters={isGameOver ? undefined : addToGuessedLetters}
 				currentWord={currentWord}
 				guessedLetters={guessedLetters}
 			/>
