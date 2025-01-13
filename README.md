@@ -85,6 +85,9 @@ Assembly Endgame is a hangman-style word-guessing game with a unique twist. Inst
 
 <img src="./preview.png" alt="Game Preview">
 
+[Click here to play!](https://donnyjb06.github.io/assembly-endgame/)
+
+
 ---
 
 Feel free to customize the sections as needed, especially the repository URLs and any additional features or technologies specific to your project. 👋
