@@ -3,12 +3,13 @@ import { FC } from "react";
 import clsx from "clsx";
 
 interface KeyboardProp {
-	addToGuessedLetters?: (letter: string) => void;
+	addToGuessedLetters: (letter: string) => void;
 	currentWord: string;
 	guessedLetters: Set<string>
+	isGameOver: boolean;
 }
 
-const Keyboard: FC<KeyboardProp> = ({ addToGuessedLetters, currentWord, guessedLetters }) => {
+const Keyboard: FC<KeyboardProp> = ({ addToGuessedLetters, currentWord, guessedLetters, isGameOver }) => {
 	const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
 
 	const alphabetButtons = alphabet.split("").map((letter: string) => {
@@ -24,9 +25,11 @@ const Keyboard: FC<KeyboardProp> = ({ addToGuessedLetters, currentWord, guessedL
 			<button
 				className={buttonClass}
 				key={letter}
-				onClick={() => addToGuessedLetters?.(letter)}
+				onClick={() => addToGuessedLetters(letter)}
+				disabled={isGameOver}
+				aria-disabled={guessedLetters.has(letter)}
 				data-letter={letter}
-				aria-label={`${letter} button`}
+				aria-label={`Letter ${letter}`}
 			>
 				{letter}
 			</button>
