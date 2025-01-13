@@ -21,8 +21,7 @@ const StatusSection: FC<StatusSectionProps> = ({
 	incorrectGuessCount,
 }) => {
 	const StatusSectionStyle: CSSProperties = {
-		visibility:
-			guessedLetters.size > 0 ? "visible" : "hidden",
+		visibility: guessedLetters.size > 0 ? "visible" : "hidden",
 	};
 
 	let statusClass = styles.statusSection;
@@ -58,7 +57,8 @@ const StatusSection: FC<StatusSectionProps> = ({
 					<p className={styles.statusSection__statusMsg}>Well done! 🎉</p>
 				</>
 			);
-		} if (isGameLost) {
+		}
+		if (isGameLost) {
 			return (
 				<>
 					<h2 className={styles.statusSection__status}>Game over!</h2>
@@ -78,9 +78,13 @@ const StatusSection: FC<StatusSectionProps> = ({
 		);
 	};
 
-
 	return (
-		<section className={statusClass} style={StatusSectionStyle}>
+		<section
+			className={statusClass}
+			style={StatusSectionStyle}
+			aria-live="polite"
+			role="status"
+		>
 			{renderGameStatus()}
 		</section>
 	);
